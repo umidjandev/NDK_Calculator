@@ -29,10 +29,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/etShowNumber"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2.2"
+        android:layout_weight="2"
         android:gravity="end|bottom"
         android:maxLines="1"
         android:paddingLeft="16dp"
@@ -45,23 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/formula"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2.2"
-        android:gravity="top|end"
-        android:maxLines="1"
-        android:textSize="25sp"
-        android:textColor="@color/textColor3"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_plus_minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result"
-        tools:text="0" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,111 +54,108 @@
         android:paddingHorizontal="20dp"
         android:orientation="horizontal">
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_clear"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/button10"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.1"
-            style="@style/Widget.Neumorph.Button"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="C"
-            android:textColor="@color/textColor"
-            android:textSize="24sp"
-            tools:ignore="NestedWeights" />
+            android:onClick="buClean"
+            android:text="AC"
+            android:layout_marginHorizontal="2dp"
+            tools:ignore="NestedWeights"
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_div"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/buPlusMins"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="/"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
+            android:onClick="buNumberEvent"
+            android:text="+/-"
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_percent"
-            style="@style/Widget.Neumorph.Button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="%"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
-
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/buttonBackspace"
-            style="@style/Widget.Neumorph.Button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="⌫"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2.1"
-        android:paddingHorizontal="20dp"
-        android:orientation="horizontal">
-
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button7"
-            style="@style/Widget.Neumorph.Button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="7"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp"
-            tools:ignore="NestedWeights" />
-
-        <soup.neumorphism.NeumorphButton
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
             android:id="@+id/button8"
-            style="@style/Widget.Neumorph.Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buPercent"
+            android:text="%"
+            android:textSize="18sp" />
+
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/buDiv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
+            android:layout_weight="1.1"
+            android:onClick="buOpEevent"
+            android:text="/"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2.1"
+        android:paddingHorizontal="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
+            android:layout_weight="1.1"
+            android:onClick="buNumberEvent"
+            android:text="7"
+            android:textSize="18sp" />
+
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
+            android:layout_weight="1.1"
+            android:onClick="buNumberEvent"
             android:text="8"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button9"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="9"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_mul"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/buMul"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="X"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
+            android:onClick="buOpEevent"
+            android:text="*"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -184,54 +165,53 @@
         android:paddingHorizontal="20dp"
         android:orientation="horizontal">
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button4"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="4"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp"
-            tools:ignore="NestedWeights" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button5"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="5"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button6"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="6"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_sub"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/buSub"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buOpEevent"
             android:text="-"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
+            android:textColor="@color/purple_700"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -241,54 +221,53 @@
         android:paddingHorizontal="20dp"
         android:orientation="horizontal">
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button1"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="1"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp"
-            tools:ignore="NestedWeights" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button2"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="2"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button3"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="3"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_add"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/buSum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buOpEevent"
             android:text="+"
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
+            android:textColor="@color/purple_700"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -299,54 +278,54 @@
         android:paddingHorizontal="20dp"
         android:orientation="horizontal">
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button00"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu00"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="00"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp"
-            tools:ignore="NestedWeights" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button0"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/bu0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="0"
-            android:textColor="@color/textColor2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_dot"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_marginRight="1pt"
+            android:id="@+id/buDot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buNumberEvent"
             android:text="."
-            android:textColor="@color/textColor2"
-            android:textSize="34sp" />
+            android:textSize="18sp" />
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/button_equal"
-            style="@style/Widget.Neumorph.Button"
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1.1"
-            android:clickable="true"
-            android:focusable="true"
+            android:onClick="buEqualEvent"
             android:text="="
-            android:textColor="@color/textColor"
-            android:textSize="24sp" />
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            tools:ignore="OnClick" />
     </LinearLayout>
 
     <View
